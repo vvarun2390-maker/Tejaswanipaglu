@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Tejaswani ❤️</title><style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.section {
+    padding: 80px 20px;
+}
+
+h1, h2, p {
+    animation: fadeIn 2s ease;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.yes { background: #00c853; color: white; }
+.no { background: #d50000; color: white; position: relative; }
+
+input {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.heart {
+    position: fixed;
+    color: red;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+img {
+    width: 220px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+#response {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+</style></head><body><audio autoplay loop>
+<source src="bairan.mp3" type="audio/mpeg">
+</audio><div id="passwordPage" class="section">
+<h1>Only for My Bacha ❤️</h1>
+<input type="password" id="password" placeholder="Enter Password">
+<br><br>
+<button onclick="checkPassword()">Enter</button>
+</div><div id="mainPage" style="display:none"><div class="section">
+<h1>Tejaswani ❤️</h1>
+<p id="typing"></p>
+</div><div class="section">
+<h2>Our Story</h2>
+<p>
+We met on Snapchat as random people, but slowly you became the most important person in my life.
+From random chats to endless calls, you made me believe in love again. Talking to you every night gives me peaceful sleep.
+</p>
+</div><div class="section">
+<h2>Reasons I Love You</h2>
+<p>
+You're the most beautiful girl I've ever seen. You understand me, you care for me, you know when I need you.
+Your smile fixes my worst days and your eyes make me forget everything.
+You are my happiness, my peace, and my safe place.
+</p>
+</div><div class="section">
+<h2>Our Memories 📸</h2>
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+</div><div class="section">
+<h2>My Proposal ❤️</h2>
+<p>
+Tejaswani Kesharwani merii khargosh meraa bacha...
+Ishan is confessing his love to you… Will you be my forever love?
+</p><button class="yes" onclick="yesClicked()">Yes ❤️</button> <button class="no" id="noBtn" onmouseover="moveNo()" onclick="noClicked()">No 😢</button>
+
+<p id="response"></p>
+</div></div><script>
+function checkPassword() {
+    var pass = document.getElementById("password").value;
+    if(pass === "imyours") {
+        document.getElementById("passwordPage").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+        startTyping();
+    } else {
+        alert("Wrong Password 😢");
+    }
+}
+
+// Typing animation
+var text = "Every love story is beautiful, but ours is my favorite.";
+var i = 0;
+function startTyping() {
+    var speed = 50;
+    function type() {
+        if (i < text.length) {
+            document.getElementById("typing").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
+// Moving No button
+function moveNo() {
+    var btn = document.getElementById("noBtn");
+    btn.style.position = "absolute";
+    btn.style.left = Math.random() * 80 + "%";
+    btn.style.top = Math.random() * 80 + "%";
+}
+
+var noCount = 0;
+function noClicked() {
+    noCount++;
+    if(noCount == 1) {
+        document.getElementById("response").innerHTML = "Think again ❤️";
+    } else {
+        document.getElementById("response").innerHTML = "I understand... Your happiness matters the most ❤️";
+    }
+}
+
+function yesClicked() {
+    document.getElementById("response").innerHTML = "You just made me the happiest person alive ❤️";
+}
+
+// Floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}, 400);
+
+</script></body>
+</html>
